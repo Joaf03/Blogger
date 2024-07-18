@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Blogger</title>
+  </head>
+  <body>
+    <h1>What is your name?</h1>
+    <form action="insert_name.php" method="POST" enctype="multipart/form-data">
+      <label for="name">Name:</label>
+      <input
+        type="text"
+        id="nameInsert"
+        name="username"
+        placeholder="Enter your name"
+      />
+      <button id="submitBtn" type="submit">Submit</button>
+    </form>
+    <div>
+      <a href="Feed_Page.html">Feed</a>
+      <a href="Create_Post_Page.html">New Post</a>
+      <a href="List_User_Posts_Page.html">My Posts</a>
+      <a href="Landing_Page.html">Log Out</a>
+    </div>
+    <script src="landing_page.js"></script>
+  </body>
+</html>
