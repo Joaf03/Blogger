@@ -32,13 +32,13 @@ try {
 </head>
 
 <body>
-  <h1 id="username">User <? echo htmlspecialchars($username); ?> posts: </h1>
+  <h1 id="username">User <?php echo htmlspecialchars($username); ?> posts: </h1>
   <div>
     <?php if (!empty($posts)) :
       foreach ($posts as $post) : ?>
         <div>
           <h2> <?php echo htmlspecialchars($post["title"]); ?> </h2>
-          <p> <?php echo htmlspecialchars($post["content"]); ?> </p>
+          <p> <?php echo htmlspecialchars($post["content"]);?> </p>
         </div>
       <?php endforeach; ?>
     <?php else : ?>

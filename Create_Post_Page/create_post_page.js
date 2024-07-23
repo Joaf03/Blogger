@@ -10,7 +10,7 @@ form.addEventListener("submit", (event) => {
   existingErrors.forEach((error) => error.remove());
 
   if (insertTitle.value.trim() == "") {
-    const titleErrorMessage = document.createElement("p");
+    const titleErrorMessage = document.createElement('p');
     titleErrorMessage.textContent = "Pleaser insert a title";
     titleErrorMessage.classList.add("error-message");
     const titleParentElement = insertTitle.parentNode;
@@ -18,7 +18,7 @@ form.addEventListener("submit", (event) => {
     hasError = true;
   }
   if (insertContent.value.trim() == "") {
-    contentErrorMessage = document.createElement("p");
+    contentErrorMessage = document.createElement('p');
     contentErrorMessage.textContent = "Please insert some content";
     contentErrorMessage.classList.add("error-message");
     const contentParentElement = insertContent.parentNode;

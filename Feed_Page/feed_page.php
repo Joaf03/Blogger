@@ -34,7 +34,7 @@ try {
     <?php if (!empty($posts)) :
       foreach ($posts as $post) : ?>
         <div>
-          <h1><?php echo htmlspecialchars($post["title"]); ?></h1>
+          <h3><?php echo htmlspecialchars($post["title"]); ?></h3>
           <p><?php echo htmlspecialchars($post["content"]); ?></p>
         </div>
       <?php endforeach; ?>
