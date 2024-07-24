@@ -9,7 +9,7 @@ try {
   $db = new PDO("sqlite:" . $dbfile);
   $db->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
 
-  $stmt = $db->prepare("SELECT * FROM Posts");
+  $stmt = $db->prepare("SELECT * FROM Posts ORDER BY created_at DESC");
   $stmt->execute();
   $posts = $stmt->fetchAll(PDO::FETCH_ASSOC);
 } catch (PDOException $e) {
@@ -43,12 +43,7 @@ try {
     <?php endif; ?>
   </div>
 
-  <div>
-    <a href="../Feed_Page/feed_page.php">Feed</a>
-    <a href="../Create_Post_Page/create_post_page.html">New Post</a>
-    <a href="../User_Posts_Page/user_posts_page.php">My Posts</a>
-    <a href="../Landing_Page/landing_page.html">Log Out</a>
-  </div>
+  <?php include "../Common_Sections/footer.php" ?>
 </body>
 
 </html>

@@ -15,24 +15,27 @@ try {
     $stmt->execute();
     $count = $stmt->fetchColumn();
 
-    if ($count != 0) die(header("Location: ../Feed_Page/feed_page.php"));
+    if ($count != 0) {
+        assignLoggedUser($db, $username);
+    }
 
     $stmt = $db->prepare("INSERT INTO Users (username) VALUES (:username)");
     $stmt->bindParam(":username", $username, PDO::PARAM_STR);
 
     if (!$stmt->execute()) die("ERROR: Failed while adding a new user");
 
+    assignLoggedUser($db, $username);
+} catch (PDOException $e) {
+    echo "ERROR- connection failed: " . $e->getMessage();
+}
+function assignLoggedUser($db, $username)
+{
     $stmt = $db->prepare("SELECT userID FROM Users WHERE username = :username");
     $stmt->bindParam(":username", $username, PDO::PARAM_STR);
     $stmt->execute();
     $user = $stmt->fetch(PDO::FETCH_ASSOC);
 
-    if ($user){
-        $_SESSION["userID"] = $user["userID"];
-        $_SESSION["username"] = $username;
-        header("Location: ../Feed_Page/feed_page.php");
-        die();
-    }
-} catch (PDOException $e) {
-    echo "ERROR- connection failed: " . $e->getMessage();
+    $_SESSION["userID"] = $user["userID"];
+    $_SESSION["username"] = $username;
+    die(header("Location: ../Feed_Page/feed_page.php"));
 }

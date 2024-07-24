@@ -25,3 +25,31 @@ try {
 } catch (PDOException $e) {
     echo "Error- connection failed: " . $e->getMessage();
 }
+?>
+
+
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Blogger</title>
+</head>
+
+<body>
+    <a href="Feed_Page.html">Go back</a>
+    <form action="create_post_page.php" method="POST" enctype="multipart/form-data">
+        <h1>Create Post</h1>
+        <label for="title">Title:</label>
+        <input type="text" id="title" name="title" placeholder="Enter the title" /><br /><br />
+        <label for="content">Content:</label>
+        <input type="text" id="content" name="content" /><br /><br />
+        <button id="submitBtn">Post</button>
+    </form>
+    
+    <?php include "../Common_Sections/footer.php" ?>
+    <script src="create_post_page.js"></script>
+</body>
+
+</html>
